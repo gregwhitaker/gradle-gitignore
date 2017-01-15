@@ -17,9 +17,12 @@
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.ParallelizableTask
 import org.gradle.api.tasks.TaskAction
+
+import java.nio.file.Paths
 
 @ParallelizableTask
 @CacheableTask
@@ -27,7 +30,13 @@ class DisplayGitIgnoreTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        System.out.println("This is the displayGitIgnore task")
+        File gitignoreFile = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
+
+        if (gitignoreFile.exists()) {
+            println(gitignoreFile.text)
+        } else {
+            throw new GradleException("The project does not contain a .gitignore file to display")
+        }
     }
 
 }
