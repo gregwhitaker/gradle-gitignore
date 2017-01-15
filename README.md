@@ -3,7 +3,13 @@ gradle-gitignore-plugin
 
 Gradle plugin for generating .gitignore files using [gitignore.io](http://gitignore.io).
 
-The gitignore plugin simplifies the tedious process of creating a .gitignore file every time you create a new project.
+###Features
+* Supports automatic discovery of the following project facets:
+    * Programming Languages
+    * Development Environment
+    * Operating System
+    
+    The plugin will use this information to automatically generate the gitignore file.
 
 ##Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
