@@ -16,13 +16,14 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-class IdeaFacetDetector extends BasePluginFacetDetector {
+class AlwaysIncludeFacetDetector implements FacetDetector {
+
+    // Facets
+    private static final String GRADLE = 'gradle'
 
     @Override
-    Map<String, List<String>> pluginToFacetsMappings() {
-        return [
-                'idea'   : [ 'intellij' ],
-                'eclipse' : [ 'eclipse' ],
-        ]
+    void addDetectedFacets(List<String> facets) {
+        facets << GRADLE
     }
+
 }

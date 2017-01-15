@@ -18,5 +18,5 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 interface FacetDetector {
 
-    List<String> detect()
+    void addDetectedFacets(List<String> facets)
 }

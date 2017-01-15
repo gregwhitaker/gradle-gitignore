@@ -16,25 +16,14 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-class OperatingSystemFacetDetector implements FacetDetector {
-
-    // Facets
-    private static final String WINDOWS = 'windows'
-    private static final String MAC_OS = 'macos'
-    private static final String MAC_OSX = 'osx'
-    private static final String LINUX = 'linux'
+class IdeFacetDetector extends BasePluginFacetDetector {
 
     @Override
-    void addDetectedFacets(List<String> facets) {
-        def os = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH)
-
-        if (os.contains('mac') || os.contains('darwin')) {
-            facets << [ MAC_OS, MAC_OSX ]
-        } else if (os.contains('win')) {
-            facets << WINDOWS
-        } else if (os.contains('nux')) {
-            facets << LINUX
-        }
+    Map<String, List<String>> pluginToFacetsMappings() {
+        return [
+                'idea'   : [ 'intellij' ],
+                'eclipse' : [ 'eclipse' ],
+        ]
     }
 
 }

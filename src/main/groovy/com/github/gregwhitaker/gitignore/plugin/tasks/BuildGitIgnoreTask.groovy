@@ -16,6 +16,8 @@
 
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
+import com.github.gregwhitaker.gitignore.plugin.internal.FacetDetector
+import com.github.gregwhitaker.gitignore.plugin.internal.FacetDetectors
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method
@@ -42,7 +44,7 @@ class BuildGitIgnoreTask extends DefaultTask {
             buildGitIgnoreFromUrl(url)
         } else {
             if (autoDetect) {
-                autoDetectFacets(facets)
+                FacetDetectors.detect(facets)
             }
 
             failIfNoFacets(facets)
@@ -84,16 +86,6 @@ class BuildGitIgnoreTask extends DefaultTask {
                 throw new GradleException("Unhandled error occurred when creating gitignore file from template in the 'url' parameter")
             }
         }
-    }
-
-    private void autoDetectFacets(List<String> facets) {
-        if (!facets) {
-            facets = new ArrayList<>()
-        }
-
-        facets.add('gradle')
-
-
     }
 
     /**

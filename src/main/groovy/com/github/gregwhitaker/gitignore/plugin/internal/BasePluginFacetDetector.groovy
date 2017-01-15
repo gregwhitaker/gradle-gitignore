@@ -18,10 +18,11 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 abstract class BasePluginFacetDetector implements FacetDetector {
 
+    abstract Map<String, List<String>> pluginToFacetsMappings()
+
     @Override
-    List<String> detect() {
-        return null
+    void addDetectedFacets(List<String> facets) {
+
     }
 
-    abstract Map<String, List<String>> pluginToFacetsMappings()
 }
