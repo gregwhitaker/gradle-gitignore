@@ -17,5 +17,5 @@
 package com.github.gregwhitaker.gitignore.plugin
 
 
-class GitIgnoreExtension {
+class GitIgnorePluginExtension {
 }

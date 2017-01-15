@@ -16,18 +16,25 @@
 
 package com.github.gregwhitaker.gitignore.plugin
 
+import com.github.gregwhitaker.gitignore.plugin.tasks.CleanGitIgnoreTask
+import com.github.gregwhitaker.gitignore.plugin.tasks.DisplayGitIgnoreTask
+import com.github.gregwhitaker.gitignore.plugin.tasks.BuildGitIgnoreTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-
 class GitIgnorePlugin implements Plugin<Project> {
+    private static final String GROUP = 'gitignore'
 
     @Override
-    void apply(Project project) {
-
+    void apply(final Project project) {
+        project.extensions.create('gitignore', GitIgnorePluginExtension.class)
+        applyTasks(project)
     }
 
     void applyTasks(final Project project) {
-
+        project.task('buildGitIgnore', type: BuildGitIgnoreTask, group: GROUP, description: 'Generates a .gitignore file for the project.', dependsOn: 'build')
+        project.task('cleanGitIgnore', type: CleanGitIgnoreTask, group: GROUP, description: 'Deletes the .gitignore file for the project.')
+        project.task('displayGitIgnore', type: DisplayGitIgnoreTask, group: GROUP, description: 'Displays the .gitignore file for the project.')
     }
+
 }
