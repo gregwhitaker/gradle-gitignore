@@ -16,11 +16,16 @@
 
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.Method
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.ParallelizableTask
 import org.gradle.api.tasks.TaskAction
+
+import java.nio.file.Paths
 
 @ParallelizableTask
 @CacheableTask
@@ -28,18 +33,16 @@ class BuildGitIgnoreTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        def autoDetect = project.gitignore.autoDetect
-        def url = project.gitignore.url
-        def facets = project.gitignore.facets
+        def autoDetect = project.gitignore.autoDetect as boolean
+        def url = project.gitignore.url as String
+        def facets = project.gitignore.facets as List<String>
 
         if (url?.trim()) {
-            failIfInvalidUrl((String) url)
-
-            logger.info("Loading .gitignore from: ${url}")
-
+            failIfInvalidUrl(url)
+            buildGitIgnoreFromUrl(url)
         } else {
             if (autoDetect) {
-                logger.info('Auto-detecting facets to apply to generated .gitignore file')
+                autoDetectFacets(facets)
             }
 
             if (facets) {
@@ -47,6 +50,46 @@ class BuildGitIgnoreTask extends DefaultTask {
                     logger.warn(it)
                 }
             }
+        }
+    }
+
+    private void buildGitIgnoreFile(List<String> facets) {
+
+    }
+
+    private void buildGitIgnoreFromUrl(String url) {
+        def http = new HTTPBuilder(url)
+        http.request(Method.GET, ContentType.ANY) {
+            response.success = { resp, content ->
+                try {
+                    File f = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
+                    f.createNewFile()
+
+                    def fout = f.newOutputStream()
+                    fout << content
+                    fout.close()
+                } catch (IOException e) {
+                    throw new GradleException('Unable to write gitignore file in project directory', e)
+                }
+            }
+
+            response.'401' = {
+                throw new GradleException("Access denied attempting to access url configured in the 'url' parameter")
+            }
+
+            response.'404' = { resp ->
+                throw new GradleException("No gitignore file template found at location configured in the 'url' parameter")
+            }
+
+            response.failure = { resp ->
+                throw new GradleException("Unhandled error occurred when creating gitignore file from template in the 'url' parameter")
+            }
+        }
+    }
+
+    private void autoDetectFacets(List<String> facets) {
+        if (!facets) {
+            facets = new ArrayList<>()
         }
     }
 
