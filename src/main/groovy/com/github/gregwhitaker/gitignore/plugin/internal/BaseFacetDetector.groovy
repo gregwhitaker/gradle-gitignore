@@ -29,7 +29,9 @@ abstract class BaseFacetDetector implements FacetDetector {
     void addFacetsIfNotExists(List<String> newFacets, List<String> facets) {
         if (newFacets) {
             newFacets.each {
-                facets << it
+                if (!facets.contains(it)) {
+                    facets << it
+                }
             }
         }
     }

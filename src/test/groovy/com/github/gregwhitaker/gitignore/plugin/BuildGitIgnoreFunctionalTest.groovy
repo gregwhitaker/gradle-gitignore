@@ -45,7 +45,7 @@ class BuildGitIgnoreFunctionalTest extends Specification {
 
             gitignore {
                 facets = [
-                    'idea',
+                    'intellij',
                     'java'
                 ]
             }   

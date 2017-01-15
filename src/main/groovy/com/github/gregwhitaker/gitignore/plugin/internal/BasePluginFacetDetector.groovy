@@ -18,9 +18,9 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 import org.gradle.api.Project
 
-abstract class BasePluginFacetDetector {
+abstract class BasePluginFacetDetector extends BaseFacetDetector {
 
-    private final Project project
+    Project project
 
     BasePluginFacetDetector(final Project project) {
         this.project = project
@@ -31,10 +31,9 @@ abstract class BasePluginFacetDetector {
     void facets(List<String> facets) {
         def mappings = pluginToFacetsMappings()
 
-        if (mappings) {
-            mappings.each {
-                def test = it
-                boolean test1 = true
+        mappings.each {
+            if (project.plugins.hasPlugin(it.key)) {
+                addFacetsIfNotExists(it.value, facets)
             }
         }
     }

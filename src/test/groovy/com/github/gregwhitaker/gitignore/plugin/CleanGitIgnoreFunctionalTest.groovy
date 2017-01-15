@@ -47,7 +47,7 @@ class CleanGitIgnoreFunctionalTest extends Specification {
 
             gitignore {
                 facets = [
-                    'idea',
+                    'intellij',
                     'java'
                 ]
             }   
