@@ -20,12 +20,18 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.ParallelizableTask
 import org.gradle.api.tasks.TaskAction
 
+import java.nio.file.Paths
+
 @ParallelizableTask
 class CleanGitIgnoreTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        System.out.println("This is the cleanGitIgnore task")
+        File gitignoreFile = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
+
+        if (gitignoreFile.exists()) {
+            gitignoreFile.delete()
+        }
     }
 
 }
