@@ -16,7 +16,6 @@
 
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
-
 import com.github.gregwhitaker.gitignore.plugin.internal.FacetDetectors
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
@@ -47,14 +46,27 @@ class BuildGitIgnoreTask extends DefaultTask {
                 FacetDetectors.detect(project, facets)
             }
 
-            failIfNoFacets(facets)
             buildGitIgnoreFile(facets)
         }
     }
 
     private void buildGitIgnoreFile(List<String> facets) {
         if (!facets) {
-            throw new GradleException("No facets configured in the 'facets' parameter")
+            throw new GradleException("The 'facets' configuration parameter is required when 'autoDetect' is disabled")
+        }
+
+        def http = new HTTPBuilder('https://www.gitignore.io/api/')
+        http.ignoreSSLIssues()
+        http.request(Method.GET, ContentType.TEXT) {
+            uri.path = facets.join('%2C')
+
+            response.success = { resp, content ->
+                writeGitIgnoreFile(content)
+            }
+
+            response.failure = { resp ->
+                throw new GradleException("Unhandled error occurred when creating gitignore file from template in the 'url' parameter")
+            }
         }
     }
 
@@ -88,6 +100,19 @@ class BuildGitIgnoreTask extends DefaultTask {
         }
     }
 
+    private void writeGitIgnoreFile(content) {
+        try {
+            File f = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
+            f.createNewFile()
+
+            def fout = f.newOutputStream()
+            fout << content
+            fout.close()
+        } catch (IOException e) {
+            throw new GradleException('Unable to write gitignore file in project directory', e)
+        }
+    }
+
     /**
      * Validates that the configured custom .gitignore url is valid.
      *
@@ -99,12 +124,6 @@ class BuildGitIgnoreTask extends DefaultTask {
             new URL(url).toURI()
         } catch (URISyntaxException e) {
             throw new GradleException("The 'url' configuration parameter specified is not a valid URL.", e)
-        }
-    }
-
-    private void failIfNoFacets(List<String> facets) {
-        if (!facets) {
-            throw new GradleException("The 'facets' configuration parameter is required when 'autoDetect' is disabled")
         }
     }
 

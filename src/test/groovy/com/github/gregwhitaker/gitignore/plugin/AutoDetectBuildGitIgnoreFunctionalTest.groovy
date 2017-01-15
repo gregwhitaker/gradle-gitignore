@@ -44,7 +44,7 @@ class AutoDetectBuildGitIgnoreFunctionalTest extends Specification {
             }
 
             gitignore {
-                autoDetect()
+                
             }   
         """
 
