@@ -27,4 +27,7 @@ class GitIgnorePlugin implements Plugin<Project> {
 
     }
 
+    void applyTasks(final Project project) {
+
+    }
 }
