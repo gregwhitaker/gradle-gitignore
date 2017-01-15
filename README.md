@@ -4,10 +4,11 @@ gradle-gitignore-plugin
 Gradle plugin for generating .gitignore files using [gitignore.io](http://gitignore.io).
 
 ##Usage
+Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.xkcd) for instructions on including this plugin in your project.
 
 ##Bugs and Feedback
 
-For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/gradle-gitignore-plugin/issues).
+For bugs, questions and discussions please use the [Github Issues](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore).
 
 ##License
 Copyright 2017 Greg Whitaker
