@@ -45,16 +45,15 @@ class BuildGitIgnoreTask extends DefaultTask {
                 autoDetectFacets(facets)
             }
 
-            if (facets) {
-                facets.each {
-                    logger.warn(it)
-                }
-            }
+            failIfNoFacets(facets)
+            buildGitIgnoreFile(facets)
         }
     }
 
     private void buildGitIgnoreFile(List<String> facets) {
-
+        if (!facets) {
+            throw new GradleException("No facets configured in the 'facets' parameter")
+        }
     }
 
     private void buildGitIgnoreFromUrl(String url) {
@@ -104,6 +103,12 @@ class BuildGitIgnoreTask extends DefaultTask {
             new URL(url).toURI()
         } catch (URISyntaxException e) {
             throw new GradleException("The 'url' configuration parameter specified is not a valid URL.", e)
+        }
+    }
+
+    private void failIfNoFacets(List<String> facets) {
+        if (!facets) {
+            throw new GradleException("The 'facets' configuration parameter is required when 'autoDetect' is disabled")
         }
     }
 
