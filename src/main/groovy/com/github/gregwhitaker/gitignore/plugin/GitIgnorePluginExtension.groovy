@@ -19,23 +19,34 @@ package com.github.gregwhitaker.gitignore.plugin
 class GitIgnorePluginExtension {
 
     boolean autoDetect = true
-
     String custom
-
     List<String> facets = new ArrayList<>()
 
+    /**
+     * Disables auto-detection of facets.
+     */
     def noAutoDetect() {
         autoDetect = false
         return this
     }
 
+    /**
+     * Overrides all facets and instead pulls the .gitignore file from the location specified.
+     *
+     * @param path path to the file to use to override
+     */
     def custom(String path) {
         custom = path
         autoDetect = false
         return this
     }
 
-    def facets(String... facet) {
+    /**
+     * List of facets to use when generating the .gitignore file.
+     *
+     * @param facets the list of facets
+     */
+    def facets(String... facets) {
         this.facets << facets
         return this
     }
