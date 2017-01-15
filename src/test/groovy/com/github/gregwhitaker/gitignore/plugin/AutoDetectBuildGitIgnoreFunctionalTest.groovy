@@ -42,10 +42,6 @@ class AutoDetectBuildGitIgnoreFunctionalTest extends Specification {
                 id 'java'
                 id 'com.github.gregwhitaker.gitignore'
             }
-
-            gitignore {
-                
-            }   
         """
 
         when:
