@@ -20,13 +20,7 @@ Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.gith
 
 ###Simple Configuration
 When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
-the plugin and it will take care of the rest.
-
-```$groovy
-plugins {
-  id "com.github.gregwhitaker.gitignore" version "1.0.0"
-}
-```
+the plugin, using the instructions in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) and it will take care of the rest.
 
 ###External Configuration
 In the event that you do not want to use gitignore.io to generate the .gitignore file you can insert any hosted document 
