@@ -55,23 +55,56 @@ class BuildGitIgnoreTask extends DefaultTask {
             throw new GradleException("The 'facets' configuration parameter is required when 'autoDetect' is disabled")
         }
 
-        def http = new HTTPBuilder('https://www.gitignore.io/api/')
-        http.ignoreSSLIssues()
-        http.request(Method.GET, ContentType.TEXT) {
-            uri.path = facets.join('%2C')
+        BufferedReader reader
+        BufferedOutputStream outputStream
+        def lineSeparator = System.getProperty("line.separator")
 
-            response.success = { resp, content ->
-                writeGitIgnoreFile(content)
+        try {
+            // Have to do this the ol'fashioned way because the SSL certs that gitignore.io are using
+            // are not supported by java and it is making the apache http client :sadpanda
+            URL url = new URL("https://www.gitignore.io/api/" + facets.join("%2C"))
+
+            HttpURLConnection conn = url.openConnection()
+            conn.setRequestMethod('GET')
+            conn.setReadTimeout(15 * 1000)
+            conn.connect()
+
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))
+
+            File f = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
+            f.createNewFile()
+
+            def line = null
+            outputStream = f.newOutputStream()
+
+
+            while ((line = reader.readLine()) != null) {
+                outputStream << line + lineSeparator
+            }
+        } catch (Exception e) {
+            throw new GradleException('Unable to write gitignore file in project directory', e)
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close()
+                } catch (IOException ex) {
+                    // Noop
+                }
             }
 
-            response.failure = { resp ->
-                throw new GradleException("Unhandled error occurred when creating gitignore file from template in the 'url' parameter")
+            if (outputStream != null) {
+                try {
+                    outputStream.close()
+                } catch (IOException ex) {
+                    // Noop
+                }
             }
         }
     }
 
     private void buildGitIgnoreFromUrl(String url) {
         def http = new HTTPBuilder(url)
+        http.ignoreSSLIssues()
         http.request(Method.GET, ContentType.ANY) {
             response.success = { resp, content ->
                 try {
@@ -97,19 +130,6 @@ class BuildGitIgnoreTask extends DefaultTask {
             response.failure = { resp ->
                 throw new GradleException("Unhandled error occurred when creating gitignore file from template in the 'url' parameter")
             }
-        }
-    }
-
-    private void writeGitIgnoreFile(content) {
-        try {
-            File f = Paths.get(project.projectDir.absolutePath, '.gitignore').toFile()
-            f.createNewFile()
-
-            def fout = f.newOutputStream()
-            fout << content
-            fout.close()
-        } catch (IOException e) {
-            throw new GradleException('Unable to write gitignore file in project directory', e)
         }
     }
 

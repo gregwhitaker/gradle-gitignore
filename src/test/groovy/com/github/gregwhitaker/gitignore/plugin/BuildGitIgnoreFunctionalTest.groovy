@@ -55,7 +55,7 @@ class BuildGitIgnoreFunctionalTest extends Specification {
         def result = GradleRunner.create()
                 .withDebug(true)
                 .withProjectDir(testProjectDir.root)
-                .withArguments('buildGitIgnore', '-Dcom.sun.net.ssl.checkRevocation=false')
+                .withArguments('buildGitIgnore')
                 .withPluginClasspath()
                 .build()
 
