@@ -32,9 +32,20 @@ class GitIgnorePlugin implements Plugin<Project> {
     }
 
     void applyTasks(final Project project) {
-        project.task('buildGitIgnore', type: BuildGitIgnoreTask, group: GROUP, description: 'Generates a .gitignore file for the project.', dependsOn: 'build')
-        project.task('cleanGitIgnore', type: CleanGitIgnoreTask, group: GROUP, description: 'Deletes the .gitignore file for the project.')
-        project.task('displayGitIgnore', type: DisplayGitIgnoreTask, group: GROUP, description: 'Displays the .gitignore file for the project.')
+        project.task('buildGitIgnore',
+                type: BuildGitIgnoreTask,
+                group: GROUP,
+                description: 'Generates a .gitignore file for the project.', dependsOn: 'build')
+
+        project.task('cleanGitIgnore',
+                type: CleanGitIgnoreTask,
+                group: GROUP,
+                description: 'Deletes the .gitignore file for the project.')
+
+        project.task('displayGitIgnore',
+                type: DisplayGitIgnoreTask,
+                group: GROUP,
+                description: 'Displays the .gitignore file for the project.')
     }
 
 }
