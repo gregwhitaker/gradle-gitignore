@@ -69,11 +69,11 @@ gitignore {
 The plugin exposes the following tasks allowing you to create new .gitignore files, delete existing files, as well as display
 the current .gitignore configuration.
 
-Name                 | Description
----------------------|-----------------------------------------
-buildGitIgnore       | Generates a .gitignore file for the project. 
-cleanGitIgnore       | Deletes the .gitignore file for the project.
-displayGitIgnore     | Displays the .gitignore file for the project.
+Name             | Description
+-----------------|-----------------------------------------
+buildGitIgnore   | Generates a .gitignore file for the project. 
+cleanGitIgnore   | Deletes the .gitignore file for the project.
+displayGitIgnore | Displays the .gitignore file for the project.
 
 
 ##Bugs and Feedback
