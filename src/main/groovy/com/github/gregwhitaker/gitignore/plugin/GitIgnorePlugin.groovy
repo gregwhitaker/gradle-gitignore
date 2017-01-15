@@ -35,7 +35,8 @@ class GitIgnorePlugin implements Plugin<Project> {
         project.task('buildGitIgnore',
                 type: BuildGitIgnoreTask,
                 group: GROUP,
-                description: 'Generates a .gitignore file for the project.', dependsOn: 'build')
+                description: 'Generates a .gitignore file for the project.',
+                dependsOn: 'build')
 
         project.task('cleanGitIgnore',
                 type: CleanGitIgnoreTask,
