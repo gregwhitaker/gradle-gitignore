@@ -16,13 +16,12 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-abstract class BasePluginFacetDetector implements FacetDetector {
+abstract class BasePluginFacetDetector {
 
     abstract Map<String, List<String>> pluginToFacetsMappings()
 
-    @Override
-    void addDetectedFacets(List<String> facets) {
-
+    static void facets(List<String> facets) {
+        def test = pluginToFacetsMappings().get('test')
     }
 
 }

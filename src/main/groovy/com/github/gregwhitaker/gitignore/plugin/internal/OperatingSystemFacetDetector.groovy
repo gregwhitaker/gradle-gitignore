@@ -16,7 +16,7 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-class OperatingSystemFacetDetector implements FacetDetector {
+class OperatingSystemFacetDetector {
 
     // Facets
     private static final String WINDOWS = 'windows'
@@ -24,8 +24,7 @@ class OperatingSystemFacetDetector implements FacetDetector {
     private static final String MAC_OSX = 'osx'
     private static final String LINUX = 'linux'
 
-    @Override
-    void addDetectedFacets(List<String> facets) {
+    static void facets(List<String> facets) {
         def os = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH)
 
         if (os.contains('mac') || os.contains('darwin')) {

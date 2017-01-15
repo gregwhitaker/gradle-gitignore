@@ -16,7 +16,7 @@
 
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
-import com.github.gregwhitaker.gitignore.plugin.internal.FacetDetector
+
 import com.github.gregwhitaker.gitignore.plugin.internal.FacetDetectors
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
