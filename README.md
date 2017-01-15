@@ -18,9 +18,7 @@ Gradle plugin for generating .gitignore files using [gitignore.io](http://gitign
 ##Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) for instructions on including this plugin in your project.
 
-###Configuration
-
-####Configuring with Automatic Generation
+###Configuring with Automatic Generation
 When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
 the plugin and it will take care of the rest.
 
