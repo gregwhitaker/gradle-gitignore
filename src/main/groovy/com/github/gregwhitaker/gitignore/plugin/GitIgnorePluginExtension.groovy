@@ -16,6 +16,27 @@
 
 package com.github.gregwhitaker.gitignore.plugin
 
-
 class GitIgnorePluginExtension {
+
+    boolean autoDetect
+
+    String custom
+
+    List<String> facets = new ArrayList<>()
+
+    def autoDetect() {
+        autoDetect = true
+        return this
+    }
+
+    def custom(String path) {
+        custom = path
+        return this
+    }
+
+    def facets(String... facet) {
+        this.facets << facets
+        return this
+    }
+
 }
