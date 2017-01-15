@@ -28,7 +28,7 @@ class CustomBuildGitIgnoreFunctionalTest extends Specification {
             }
 
             gitignore {
-                custom = 'https://raw.githubusercontent.com/gregwhitaker/ratpack-reactivestreams-example/master/.gitignore'
+                custom = 'https://github.com/gregwhitaker/gradle-gitignore-plugin/blob/master/src/test/templates/template-gitignore'
             }   
         """
 
