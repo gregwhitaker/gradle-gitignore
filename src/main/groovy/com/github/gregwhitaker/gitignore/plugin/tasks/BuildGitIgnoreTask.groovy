@@ -28,16 +28,33 @@ class BuildGitIgnoreTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        if (project.gitignore.custom?.trim()) {
-            failIfInvalidUrl((String) project.gitignore.custom)
+        def autoDetect = project.gitignore.autoDetect
+        def url = project.gitignore.url
+        def facets = project.gitignore.facets
+
+        if (url?.trim()) {
+            failIfInvalidUrl((String) url)
+
+            logger.info("Loading .gitignore from: ${url}")
 
         } else {
-            if (project.gitignore.autoDetect) {
+            if (autoDetect) {
+                logger.info('Auto-detecting facets to apply to generated .gitignore file')
+            }
 
+            if (facets) {
+                facets.each {
+                    logger.warn(it)
+                }
             }
         }
     }
 
+    /**
+     * Validates that the configured custom .gitignore url is valid.
+     *
+     * @param url url to validate
+     */
     private void failIfInvalidUrl(String url) {
         try {
             logger.debug("Validating URL: '${url}'")
