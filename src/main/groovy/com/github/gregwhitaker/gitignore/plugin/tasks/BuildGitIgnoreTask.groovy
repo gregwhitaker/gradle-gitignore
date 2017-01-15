@@ -90,6 +90,10 @@ class BuildGitIgnoreTask extends DefaultTask {
         if (!facets) {
             facets = new ArrayList<>()
         }
+
+        facets.add('gradle')
+
+
     }
 
     /**
