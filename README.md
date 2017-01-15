@@ -65,6 +65,8 @@ gitignore {
 ```
 
 ###Tasks
+The plugin exposes the following tasks allowing you to create new .gitignore files, delete existing files, as well as display
+the current .gitignore configuration.
 
 ##Bugs and Feedback
 
