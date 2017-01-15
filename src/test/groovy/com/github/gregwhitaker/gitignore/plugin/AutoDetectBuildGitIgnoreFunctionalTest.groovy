@@ -34,7 +34,7 @@ class AutoDetectBuildGitIgnoreFunctionalTest extends Specification {
         buildFile = testProjectDir.newFile('build.gradle')
     }
 
-    def "buildGitIgnore creates a .gitignore with facets"() {
+    def "buildGitIgnore creates a .gitignore with facets automatically detected"() {
         given:
         buildFile << """
             plugins {
