@@ -38,6 +38,7 @@ class BuildGitIgnoreFunctionalTest extends Specification {
         given:
         buildFile << """
             plugins {
+                id 'idea'
                 id 'java'
                 id 'com.github.gregwhitaker.gitignore'
             }
@@ -61,4 +62,5 @@ class BuildGitIgnoreFunctionalTest extends Specification {
         then:
         result.task(":buildGitIgnore").outcome == SUCCESS
     }
+
 }
