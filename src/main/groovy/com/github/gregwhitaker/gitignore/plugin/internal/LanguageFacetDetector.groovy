@@ -18,6 +18,9 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 import org.gradle.api.Project
 
+/**
+ * Detects which facets to add based on the language plugins applied to the project.
+ */
 class LanguageFacetDetector extends BasePluginFacetDetector {
 
     LanguageFacetDetector(Project project) {

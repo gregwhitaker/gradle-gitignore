@@ -18,6 +18,9 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 import org.gradle.api.Project
 
+/**
+ * Base class for all facet detectors that are based on plugins applied to the project.
+ */
 abstract class BasePluginFacetDetector extends BaseFacetDetector {
 
     Project project
@@ -26,8 +29,16 @@ abstract class BasePluginFacetDetector extends BaseFacetDetector {
         this.project = project
     }
 
+    /**
+     * @return mapping of plugin to facets
+     */
     abstract Map<String, List<String>> pluginToFacetsMappings()
 
+    /**
+     * Adds facets to the list based on the plugins applied to the project.
+     *
+     * @param facets list to which to add facets
+     */
     void facets(List<String> facets) {
         def mappings = pluginToFacetsMappings()
 

@@ -16,6 +16,9 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
+/**
+ * Detects facets to add based on the operating system.
+ */
 class OperatingSystemFacetDetector extends BaseFacetDetector {
 
     // Facets

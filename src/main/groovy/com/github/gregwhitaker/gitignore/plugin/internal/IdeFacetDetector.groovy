@@ -18,6 +18,9 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 
 import org.gradle.api.Project
 
+/**
+ * Detects which facets to add based on the IDE plugins applied to the project.
+ */
 class IdeFacetDetector extends BasePluginFacetDetector {
 
     IdeFacetDetector(Project project) {

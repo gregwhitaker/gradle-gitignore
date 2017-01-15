@@ -19,12 +19,12 @@ package com.github.gregwhitaker.gitignore.plugin.internal
 import org.gradle.api.Project
 
 /**
- * Holder for all {@link FacetDetector} implementations.
+ * Holder for all {@link BaseFacetDetector} implementations.
  */
 class FacetDetectors {
 
     /**
-     * Runs all {@link FacetDetector} implementations.
+     * Runs all {@link BaseFacetDetector} implementations.
      *
      * @param project gradle project
      * @param facets list to which to add detected facets

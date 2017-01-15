@@ -16,6 +16,9 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
+/**
+ * Adds facets that are always required.
+ */
 class AlwaysIncludeFacetDetector extends BaseFacetDetector {
 
     // Facets

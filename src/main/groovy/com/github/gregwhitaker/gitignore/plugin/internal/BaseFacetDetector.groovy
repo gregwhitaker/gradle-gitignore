@@ -16,16 +16,36 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-abstract class BaseFacetDetector implements FacetDetector {
+/**
+ * Base class for all facet detectors.
+ */
+abstract class BaseFacetDetector {
 
+    /**
+     * Adds detected facets to the supplied facets collection
+     *
+     * @param facets collection to which to add detected facets
+     */
     abstract void facets(List<String> facets)
 
+    /**
+     * Adds a facet to the facet list if the list does not already contain the facet.
+     *
+     * @param newFacet facet to add
+     * @param facets list to which to add the facet
+     */
     void addFacetIfNotExists(String newFacet, List<String> facets) {
         if (!facets.contains(newFacet)) {
             facets << newFacet
         }
     }
 
+    /**
+     * Adds multiple facets to the list of facets if the list does not already contain the facets.
+     *
+     * @param newFacets facets to add
+     * @param facets list to which to add the facet
+     */
     void addFacetsIfNotExists(List<String> newFacets, List<String> facets) {
         if (newFacets) {
             newFacets.each {
