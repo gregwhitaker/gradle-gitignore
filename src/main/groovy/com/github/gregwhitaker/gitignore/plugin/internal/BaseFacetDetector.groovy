@@ -47,11 +47,9 @@ abstract class BaseFacetDetector {
      * @param facets list to which to add the facet
      */
     void addFacetsIfNotExists(List<String> newFacets, List<String> facets) {
-        if (newFacets) {
-            newFacets.each {
-                if (!facets.contains(it)) {
-                    facets << it
-                }
+        newFacets?.each {
+            if (!facets.contains(it)) {
+                facets << it
             }
         }
     }
