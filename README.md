@@ -18,7 +18,7 @@ Gradle plugin for generating .gitignore files using [gitignore.io](http://gitign
 ##Usage
 Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) for instructions on including this plugin in your project.
 
-###Configuring with Automatic Generation
+###Simple Configuration
 When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
 the plugin and it will take care of the rest.
 
@@ -26,6 +26,17 @@ the plugin and it will take care of the rest.
 plugins {
   id "com.github.gregwhitaker.gitignore" version "1.0.0"
 }
+```
+
+###External Configuration
+In the event that you do not want to use gitignore.io to generate the .gitignore file you can insert any hosted document 
+using the `url` configuration parameter.
+
+```$groovy
+gitignore {
+    url = 'https://raw.githubusercontent.com/gregwhitaker/gradle-gitignore-plugin/master/src/test/templates/template-gitignore?token=AFw8vOxtg_dhIKrIKO1-aKjhpcvuxB6Kks5YhFcIwA%3D%3D'
+}   
+
 ```
 
 ###Tasks
