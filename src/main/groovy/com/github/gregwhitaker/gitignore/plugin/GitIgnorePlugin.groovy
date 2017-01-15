@@ -23,6 +23,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class GitIgnorePlugin implements Plugin<Project> {
+
     private static final String GROUP = 'gitignore'
 
     @Override
