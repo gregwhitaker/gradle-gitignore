@@ -17,6 +17,7 @@
 package com.github.gregwhitaker.gitignore.plugin.tasks
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.ParallelizableTask
 import org.gradle.api.tasks.TaskAction
@@ -27,7 +28,23 @@ class BuildGitIgnoreTask extends DefaultTask {
 
     @TaskAction
     void run() {
-        System.out.println("This is the buildGitIgnore task")
+        if (project.gitignore.custom?.trim()) {
+            failIfInvalidUrl((String) project.gitignore.custom)
+
+        } else {
+            if (project.gitignore.autoDetect) {
+
+            }
+        }
+    }
+
+    private void failIfInvalidUrl(String url) {
+        try {
+            logger.debug("Validating URL: '${url}'")
+            new URL(url).toURI()
+        } catch (URISyntaxException e) {
+            throw new GradleException("The 'url' configuration parameter specified is not a valid URL.", e)
+        }
     }
 
 }

@@ -19,25 +19,25 @@ package com.github.gregwhitaker.gitignore.plugin
 class GitIgnorePluginExtension {
 
     boolean autoDetect = true
-    String custom
+    String url
     List<String> facets = new ArrayList<>()
 
     /**
      * Disables auto-detection of facets.
      */
     def noAutoDetect() {
-        autoDetect = false
+        this.autoDetect = false
         return this
     }
 
     /**
-     * Overrides all facets and instead pulls the .gitignore file from the location specified.
+     * Overrides all facets and instead pulls the .gitignore file from the url specified.
      *
-     * @param path path to the file to use to override
+     * @param url url of the file to use as the .gitignore file
      */
-    def custom(String path) {
-        custom = path
-        autoDetect = false
+    def url(String url) {
+        this.url = url
+        this.autoDetect = false
         return this
     }
 
