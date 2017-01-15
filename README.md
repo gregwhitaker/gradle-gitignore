@@ -22,6 +22,37 @@ Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.gith
 When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
 the plugin, using the instructions in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) and it will take care of the rest.
 
+###Enhanced Configuration
+The plugin uses *"facets"* to describe what rules to add to the .gitignore file.  These facets correspond to the technology 
+selections on the gitignore.io website.
+
+When using enhanced configuration the plugin will continue to automatically discover project facets, but you are able to add 
+your own facets to the generation process as well using the `facets` configuration parameter.
+
+```$groovy
+gitignore {
+    facets = [
+        'linux',
+        'eclipse'
+    ]
+}   
+```
+
+###Manual Configuration
+Automatic discovery of project facets can be disabled allowing you to configure all facets that will be used for generation 
+of the .gitignore file by calling the `noAutoDetect()` configuration method.
+
+```$groovy
+gitignore {
+    noAutoDetect()
+    facets = [
+        'java',
+        'idea',
+        'gradle'
+    ]
+}   
+```
+
 ###External Configuration
 In the event that you do not want to use gitignore.io to generate the .gitignore file you can insert any hosted document 
 using the `url` configuration parameter.
