@@ -16,7 +16,13 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
+import org.gradle.api.Project
+
 class LanguageFacetDetector extends BasePluginFacetDetector {
+
+    LanguageFacetDetector(Project project) {
+        super(project)
+    }
 
     @Override
     Map<String, List<String>> pluginToFacetsMappings() {

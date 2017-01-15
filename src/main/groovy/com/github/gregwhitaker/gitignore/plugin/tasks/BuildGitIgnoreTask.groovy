@@ -44,7 +44,7 @@ class BuildGitIgnoreTask extends DefaultTask {
             buildGitIgnoreFromUrl(url)
         } else {
             if (autoDetect) {
-                FacetDetectors.detect(facets)
+                FacetDetectors.detect(project, facets)
             }
 
             failIfNoFacets(facets)

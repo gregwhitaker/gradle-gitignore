@@ -16,14 +16,13 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
-class AlwaysIncludeFacetDetector extends BaseFacetDetector {
+interface FacetDetector {
 
-    // Facets
-    private static final String GRADLE = 'gradle'
-
-    @Override
-    void facets(List<String> facets) {
-        addFacetIfNotExists(GRADLE, facets)
-    }
+    /**
+     * Adds detected facets to the supplied facets collection
+     *
+     * @param facets collection to which to add detected facets
+     */
+    void facets(List<String> facets)
 
 }

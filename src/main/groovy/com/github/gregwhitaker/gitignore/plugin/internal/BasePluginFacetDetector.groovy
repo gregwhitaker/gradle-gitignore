@@ -16,12 +16,27 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
+import org.gradle.api.Project
+
 abstract class BasePluginFacetDetector {
+
+    private final Project project
+
+    BasePluginFacetDetector(final Project project) {
+        this.project = project
+    }
 
     abstract Map<String, List<String>> pluginToFacetsMappings()
 
-    static void facets(List<String> facets) {
-        def test = pluginToFacetsMappings().get('test')
+    void facets(List<String> facets) {
+        def mappings = pluginToFacetsMappings()
+
+        if (mappings) {
+            mappings.each {
+                def test = it
+                boolean test1 = true
+            }
+        }
     }
 
 }

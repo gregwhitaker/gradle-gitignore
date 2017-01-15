@@ -16,12 +16,14 @@
 
 package com.github.gregwhitaker.gitignore.plugin.internal
 
+import org.gradle.api.Project
+
 class FacetDetectors {
 
-    static void detect(List<String> facets) {
-        AlwaysIncludeFacetDetector.facets(facets)
-        OperatingSystemFacetDetector.facets(facets)
-        LanguageFacetDetector.facets(facets)
-        IdeFacetDetector.facets(facets)
+    static void detect(final Project project, final List<String> facets) {
+        new AlwaysIncludeFacetDetector().facets(facets)
+        new OperatingSystemFacetDetector().facets(facets)
+        new LanguageFacetDetector(project).facets(facets)
+        new IdeFacetDetector(project).facets(facets)
     }
 }
