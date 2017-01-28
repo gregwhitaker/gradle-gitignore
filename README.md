@@ -78,7 +78,7 @@ displayGitIgnore | Displays the .gitignore file for the project.
 
 ##Bugs and Feedback
 
-For bugs, questions and discussions please use the [Github Issues](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore).
+For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/gradle-gitignore-plugin/issues).
 
 ##License
 Copyright 2017 Greg Whitaker
