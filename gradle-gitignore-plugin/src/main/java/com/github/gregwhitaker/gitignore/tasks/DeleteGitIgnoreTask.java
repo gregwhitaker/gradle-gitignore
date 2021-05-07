@@ -1,4 +1,4 @@
-package com.github.gregwhitaker.gitignore.task;
+package com.github.gregwhitaker.gitignore.tasks;
 
 import com.github.gregwhitaker.gitignore.GitIgnorePlugin;
 import org.gradle.api.DefaultTask;
@@ -8,11 +8,11 @@ public class DeleteGitIgnoreTask extends DefaultTask {
 
     public DeleteGitIgnoreTask() {
         setGroup(GitIgnorePlugin.GROUP_NAME);
-        setDescription("Deletes the .gitignore file from the project.");
+        setDescription("Deletes the .gitignore file for the project.");
     }
 
     @TaskAction
     public void run() {
-        System.out.println("foo");
+        System.out.println("deleteGitIgnore");
     }
 }
