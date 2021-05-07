@@ -45,9 +45,8 @@ apply plugin: "com.github.gregwhitaker.gitignore"
 ```
 
 ### Simple Configuration
-When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
-the plugin, using the instructions in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) and a `.gitignore` file will
-be automatically generated.
+When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply
+the plugin, as detailed above, and a `.gitignore` file will be automatically generated.
 
 ### Advanced Configuration
 The plugin uses *"facets"* to describe what rules to add to the .gitignore file.  These facets correspond to the technology 
