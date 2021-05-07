@@ -103,8 +103,8 @@ limitations under the License.
 [docs]:https://gregwhitaker.github.io/gradle-gitignore/
 [docs img]:https://img.shields.io/badge/Documentation-yes-green.svg
 
-[pluginportal]:https://plugins.gradle.org/plugin/com.nike.pdm.localstack
+[pluginportal]:https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore
 [pluginportal img]:https://img.shields.io/badge/Gradle%20Plugin%20Portal-v2.0.0-blue.svg
 
-[license]:LICENSE.txt
+[license]:LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202-blue.svg
