@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Adds facets based on the language plugins detected.
+ */
 public class LanguageFacetDetector extends BasePluginFacetDetector {
 
     public LanguageFacetDetector(final Project project) {

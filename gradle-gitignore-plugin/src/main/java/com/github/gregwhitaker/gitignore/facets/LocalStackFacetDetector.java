@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Adds facets if the localstack gradle plugin is detected.
+ */
 public class LocalStackFacetDetector extends BasePluginFacetDetector {
 
     public LocalStackFacetDetector(Project project) {

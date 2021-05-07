@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Adds facets based on the ide plugins detected.
+ */
 public class IdeFacetDetector extends BasePluginFacetDetector {
 
     public IdeFacetDetector(final Project project) {

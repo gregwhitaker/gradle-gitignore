@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Base class for all facet detectors that require checking applied gradle plugins.
+ */
 public abstract class BasePluginFacetDetector implements FacetDetector {
     private final Project project;
 
@@ -13,6 +16,11 @@ public abstract class BasePluginFacetDetector implements FacetDetector {
         this.project = project;
     }
 
+    /**
+     * Returns a mapping of pluginId to the facets that should be applied if the plugin is detected.
+     *
+     * @return map of pluginId to facets
+     */
     abstract Map<String, List<String>> pluginToFacetsMappings();
 
     @Override
