@@ -1,5 +1,5 @@
 # gradle-gitignore-plugin
-[![Build Status](https://travis-ci.org/gregwhitaker/gradle-gitignore-plugin.svg?branch=master)](https://travis-ci.org/gregwhitaker/gradle-gitignore-plugin)
+[![Build](https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml)
 
 Gradle plugin for generating .gitignore files using [gitignore.io](http://gitignore.io).
 
