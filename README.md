@@ -18,7 +18,7 @@ Gradle plugin for generating .gitignore files using [gitignore.io](http://gitign
 
 * Support for pulling gitignore templates from locations other than gitignore.io.
 
-## Getting Started
+## Usage
 The plugin can be applied with either the plugin or legacy buildscript DSL. For more information on applying the plugin and available plugin versions please refer to the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore).
 
 ### Applying the Plugin with Plugin DSL
@@ -43,9 +43,6 @@ buildscript {
 
 apply plugin: "com.github.gregwhitaker.gitignore"
 ```
-
-## Usage
-Please see the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore) for instructions on including this plugin in your project.
 
 ### Simple Configuration
 When using the plugin with automatic configuration there is no need for a configuration block.  Simply apply 
