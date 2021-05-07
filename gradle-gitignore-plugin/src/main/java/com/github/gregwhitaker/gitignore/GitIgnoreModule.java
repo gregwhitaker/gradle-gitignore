@@ -2,6 +2,7 @@ package com.github.gregwhitaker.gitignore;
 
 import com.github.gregwhitaker.gitignore.tasks.CreateGitIgnoreTask;
 import com.github.gregwhitaker.gitignore.tasks.DeleteGitIgnoreTask;
+import com.github.gregwhitaker.gitignore.tasks.ListGitIgnoreFacetsTask;
 import com.github.gregwhitaker.gitignore.tasks.PrintGitIgnoreTask;
 import org.gradle.api.Project;
 
@@ -17,6 +18,7 @@ public class GitIgnoreModule {
     public static final String CREATE_GITIGNORE_TASK_NAME = "createGitIgnore";
     public static final String DELETE_GITIGNORE_TASK_NAME = "deleteGitIgnore";
     public static final String PRINT_GITIGNORE_TASK_NAME = "printGitIgnore";
+    public static final String LIST_GITIGNORE_FACETS_TASK_NAME = "listGitIgnoreFacets";
 
     /**
      * Loads and configures all tasks in the GitIgnore group.
@@ -30,6 +32,7 @@ public class GitIgnoreModule {
         tasks.put(CREATE_GITIGNORE_TASK_NAME, CreateGitIgnoreTask.class);
         tasks.put(DELETE_GITIGNORE_TASK_NAME, DeleteGitIgnoreTask.class);
         tasks.put(PRINT_GITIGNORE_TASK_NAME, PrintGitIgnoreTask.class);
+        tasks.put(LIST_GITIGNORE_FACETS_TASK_NAME, ListGitIgnoreFacetsTask.class);
 
         tasks.forEach((name, clazz) -> {
             // Register the default tasks with the project
