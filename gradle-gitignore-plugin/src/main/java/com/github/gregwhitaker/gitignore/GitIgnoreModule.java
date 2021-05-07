@@ -20,7 +20,10 @@ import com.github.gregwhitaker.gitignore.tasks.DeleteGitIgnoreTask;
 import com.github.gregwhitaker.gitignore.tasks.ListGitIgnoreFacetsTask;
 import com.github.gregwhitaker.gitignore.tasks.PrintGitIgnoreTask;
 import org.gradle.api.Project;
+import org.gradle.api.tasks.TaskCollection;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,5 +56,22 @@ public class GitIgnoreModule {
             // Register the default tasks with the project
             project.getTasks().create(name, clazz);
         });
+
+        autoCreateGitIgnoreOnApply(project);
+    }
+
+    /**
+     * Automatically creates a basic .gitignore file on plugin application.
+     *
+     * @param project gradle project
+     */
+    private static void autoCreateGitIgnoreOnApply(final Project project) {
+        final File file = Paths.get(project.getProjectDir().getAbsolutePath(), ".gitignore").toFile();
+
+        if (!file.exists()) {
+            final TaskCollection<CreateGitIgnoreTask> createGitIgnoreTasks = project.getTasks().withType(CreateGitIgnoreTask.class);
+            final CreateGitIgnoreTask task = createGitIgnoreTasks.getByName(CREATE_GITIGNORE_TASK_NAME);
+            task.run();
+        }
     }
 }
