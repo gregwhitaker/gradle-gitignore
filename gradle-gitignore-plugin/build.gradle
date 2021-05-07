@@ -26,6 +26,10 @@ repositories {
 
 dependencies {
     gradleApi()
+
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    implementation "commons-io:commons-io:2.8.0"
+    implementation "commons-validator:commons-validator:1.7"
 }
 
 // Test Configuration
