@@ -2,6 +2,7 @@ package com.github.gregwhitaker.gitignore.tasks;
 
 import com.github.gregwhitaker.gitignore.GitIgnoreExtension;
 import com.github.gregwhitaker.gitignore.GitIgnorePlugin;
+import com.github.gregwhitaker.gitignore.facets.FacetDetectors;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -45,7 +46,7 @@ public class CreateGitIgnoreTask extends DefaultTask {
 
             // Add auto-detected facets
             if (ext.isAutoDetect()) {
-                facets.addAll(autodetectFacets());
+                FacetDetectors.detect(getProject(), facets);
             }
 
             // Add manually entered facets
@@ -66,17 +67,6 @@ public class CreateGitIgnoreTask extends DefaultTask {
                 throw new GradleException(String.format("Error occurred while writing '.gitignore' file. [file: '%s']", file.getAbsolutePath()));
             }
         }
-    }
-
-    /**
-     * Auto-detects project facets to add based on the plugins applied to the project.
-     *
-     * @return a set of facet names
-     */
-    private Set<String> autodetectFacets() {
-        Set<String> detectedFacets = new HashSet<>();
-
-        return detectedFacets;
     }
 
     /**

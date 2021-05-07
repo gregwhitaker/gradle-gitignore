@@ -1,6 +1,6 @@
 plugins {
     id "idea"
-    id "groovy"
+    id "java"
     id "java-gradle-plugin"
     id "com.gradle.plugin-publish"      version "0.12.0"
     id "org.asciidoctor.jvm.convert"    version "3.1.0"
