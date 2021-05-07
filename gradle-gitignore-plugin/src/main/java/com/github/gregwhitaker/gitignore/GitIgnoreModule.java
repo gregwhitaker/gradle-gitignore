@@ -61,7 +61,7 @@ public class GitIgnoreModule {
     }
 
     /**
-     * Automatically creates a basic .gitignore file on plugin application.
+     * Automatically creates a basic .gitignore file on application of plugin.
      *
      * @param project gradle project
      */
