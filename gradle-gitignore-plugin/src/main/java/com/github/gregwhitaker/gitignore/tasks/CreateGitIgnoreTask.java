@@ -15,7 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -23,6 +25,7 @@ import java.util.Set;
  */
 public class CreateGitIgnoreTask extends DefaultTask {
     private static final String GITIGNORE_BASE_URL = "https://www.toptal.com/developers/gitignore/api/";
+    private static final List<String> DEFAULT_FACETS = Arrays.asList("gradle");
 
     public CreateGitIgnoreTask() {
         setGroup(GitIgnorePlugin.GROUP_NAME);
@@ -38,7 +41,7 @@ public class CreateGitIgnoreTask extends DefaultTask {
         if (ext.getUrl() != null) {
             contents = getUrl(ext.getUrl());
         } else {
-            final Set<String> facets = new HashSet<>();
+            final Set<String> facets = new HashSet<>(DEFAULT_FACETS);
 
             // Add auto-detected facets
             if (ext.isAutoDetect()) {
@@ -55,7 +58,7 @@ public class CreateGitIgnoreTask extends DefaultTask {
         }
 
         // Write the .gitignore file
-        if (contents != null && contents.length() > 0) {
+        if (contents.length() > 0) {
             final File file = Paths.get(getProject().getProjectDir().getAbsolutePath(), ".gitignore").toFile();
             try {
                 FileUtils.writeStringToFile(file, contents, Charset.defaultCharset());
