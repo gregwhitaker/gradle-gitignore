@@ -1,0 +1,39 @@
+buildscript {
+    dependencies {
+        classpath "com.github.gregwhitaker.gitignore:gradle-gitignore-plugin"
+    }
+}
+
+plugins {
+    id "idea"
+    id "java"
+    id "application"
+    id "com.github.hierynomus.license"      version "0.15.0"
+    id "com.avast.gradle.docker-compose"    version "0.12.1"
+    id "com.nike.pdm.localstack"    version "0.2.0"
+}
+
+apply plugin: "com.github.gregwhitaker.gitignore"
+
+// Project Configuration
+project.group           = "com.github.gregwhitaker.gitignore"
+project.version         = "2.0.0"
+project.description     = "Example project that demonstrates the use of the Gradle GitIgnore Plugin"
+
+repositories {
+    mavenCentral()
+}
+
+// Licensing
+license {
+    header rootProject.file('codequality/LICENSE_HEADER')
+    strictCheck true
+    excludes([ "**/*.json",
+               "**/*.yml",
+               "**/*.yaml",
+               "**/*.properties",
+               "**/*.html",
+               "**/*.js",
+               "**/*.css",
+               "**/*.map"])
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'gradle-gitignore-plugin-example'
+
+includeBuild '../gradle-gitignore-plugin'
