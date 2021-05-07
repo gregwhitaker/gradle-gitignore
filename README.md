@@ -1,5 +1,8 @@
 # gradle-gitignore-plugin
-[![Build](https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml)
+[![][actions img]][actions]
+[![][docs img]][docs]
+[![][pluginportal img]][pluginportal]
+[![][license img]][license]
 
 Gradle plugin for generating .gitignore files using [gitignore.io](http://gitignore.io).
 
@@ -93,3 +96,15 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+[actions]:https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml
+[actions img]:https://github.com/gregwhitaker/gradle-gitignore/actions/workflows/gradle-build.yml/badge.svg
+
+[docs]:https://gregwhitaker.github.io/gradle-gitignore/
+[docs img]:https://img.shields.io/badge/Documentation-yes-green.svg
+
+[pluginportal]:https://plugins.gradle.org/plugin/com.nike.pdm.localstack
+[pluginportal img]:https://img.shields.io/badge/Gradle%20Plugin%20Portal-v2.0.0-blue.svg
+
+[license]:LICENSE.txt
+[license img]:https://img.shields.io/badge/License-Apache%202-blue.svg
