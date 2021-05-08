@@ -20,6 +20,9 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
+import java.nio.file.Files
+import java.nio.file.Paths
+
 import static org.junit.Assert.assertTrue
 
 class AutoCreateGitIgnoreFunctionalTest extends Specification {
@@ -42,6 +45,8 @@ class AutoCreateGitIgnoreFunctionalTest extends Specification {
             }
         """
 
+        def gitignorePath = Paths.get(testProjectDir.root.getAbsolutePath(), ".gitignore")
+
         when:
         def result = GradleRunner.create()
                 .withPluginClasspath()
@@ -49,6 +54,11 @@ class AutoCreateGitIgnoreFunctionalTest extends Specification {
                 .build()
 
         then:
-        assertTrue(new File(testProjectDir.root.getAbsolutePath() + "/.gitignore").exists())
+        assertTrue(gitignorePath.toFile().exists())
+
+        def contents = Files.readString(gitignorePath)
+        assertTrue(contents.contains("### Gradle ###"))
+        assertTrue(contents.contains("### Intellij+all ###"))
+        assertTrue(contents.contains("### Java ###"))
     }
 }
