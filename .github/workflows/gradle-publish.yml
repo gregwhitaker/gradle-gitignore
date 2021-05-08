@@ -22,4 +22,4 @@ jobs:
         env:
           GPP_KEY: ${{ secrets.GPP_KEY }}
           GPP_SECRET: ${{ secrets.GPP_SECRET }}
-        run: cd gradle-gitignore-plugin && ./gradlew build publishPlugins -Pgradle.publish.key=$GPP_KEY -Pgradle.publish.secret=$GPP_SECRET
+        run: cd gradle-gitignore-plugin && ./gradlew build funcTest publishPlugins -Pgradle.publish.key=$GPP_KEY -Pgradle.publish.secret=$GPP_SECRET
