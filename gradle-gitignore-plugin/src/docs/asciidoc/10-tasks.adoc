@@ -6,8 +6,9 @@ The plugin applies default tasks, which can be executed from the Gradle command 
 [cols="5,3,10,10"]
 |=======
 |Task Name             |Type     |Usage                            |Description
-|`createGitIgnore`     | Default | `./gradlew createGitIgnore`     |Creates a .gitignore file for the project.
-|`deleteGitIgnore`     | Default | `./gradlew deleteGitIgnore`     |Deletes the .gitignore file for the project.
-|`listGitIgnoreFacets` | Default | `./gradlew listGitIgnoreFacets` |Lists all of the supported project facets.
-|`printGitIgnore`      | Default | `./gradlew printGitIgnore`      |Prints the .gitignore file for the project.
+|link:./javadoc/com/github/gregwhitaker/gitignore/tasks/CreateGitIgnoreTask.html[createGitIgnore] | Default | `./gradlew createGitIgnore`     |Creates a .gitignore file for the project.
+|link:./javadoc/com/github/gregwhitaker/gitignore/tasks/DeleteGitIgnoreTask.html[deleteGitIgnore] | Default | `./gradlew deleteGitIgnore`     |Deletes the .gitignore file for the project.
+|link:./javadoc/com/github/gregwhitaker/gitignore/tasks/ListGitIgnoreFacetsTask.html[listGitIgnoreFacets] | Default | `./gradlew listGitIgnoreFacets` |Lists all of the supported project facets.
+|link:./javadoc/com/github/gregwhitaker/gitignore/tasks/PrintGitIgnoreTask.html[printGitIgnore] | Default | `./gradlew printGitIgnore`      |Prints the .gitignore file for the project.
 |=======
+
