@@ -2,4 +2,4 @@
 
 include::00-intro.adoc[]
 
-include::10-creating-gitignore.adoc[]
+include::10-create-gitignore.adoc[]
