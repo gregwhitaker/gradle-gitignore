@@ -17,3 +17,4 @@ Gradle plugin for generating .gitignore files using link:http://gitignore.io[git
 For detailed information on getting started with this plugin and how to configure specific tasks, please refer to the
 documentation below.
 
+include::01-getting-started.adoc[]
