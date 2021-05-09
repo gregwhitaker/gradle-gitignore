@@ -1,0 +1,11 @@
+== Create GitIgnore
+
+There are a number of options for creating `.gitignore` files with this plugin.
+
+include::21-create-gitignore-simple.adoc[]
+
+include::22-create-gitignore-advanced.adoc[]
+
+include::23-create-gitignore-manual.adoc[]
+
+include::24-create-gitignore-external.adoc[]
