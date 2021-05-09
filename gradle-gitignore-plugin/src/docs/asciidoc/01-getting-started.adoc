@@ -1,4 +1,4 @@
-=== Getting Started
+== Getting Started
 
 The plugin can be applied with the plugin DSL or the buildscript syntax.
 
