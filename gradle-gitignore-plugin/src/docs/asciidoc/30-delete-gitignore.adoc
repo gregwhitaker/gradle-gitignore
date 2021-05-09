@@ -1,5 +1,5 @@
 == Delete GitIgnore
-Deletes the existing .gitignore file if it exists.
+Deletes the existing `.gitignore` file if it exists.
 
 === Example
 [source,groovy,indent=0,subs="verbatim,attributes",role="primary"]

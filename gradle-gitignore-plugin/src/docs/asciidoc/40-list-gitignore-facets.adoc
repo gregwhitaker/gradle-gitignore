@@ -1,0 +1,9 @@
+== List GitIgnore Facets
+Lists all of the supported project facets that can be used to create the `.gitignore` file.
+
+=== Example
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Bash
+----
+include::{samplesCodeDir}/list-gitignore-facets/bash/example.sh[]
+----
