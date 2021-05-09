@@ -1,0 +1,3 @@
+gitignore {
+    url = 'https://raw.githubusercontent.com/gregwhitaker/gradle-gitignore-plugin/master/src/templates/template-gitignore?token=AFw8vOxtg_dhIKrIKO1-aKjhpcvuxB6Kks5YhFcIwA%3D%3D'
+}

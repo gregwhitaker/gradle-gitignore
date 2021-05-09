@@ -1,1 +1,8 @@
 === Manual Configuration
+Automatic discovery of project facets can be disabled allowing you to configure all facets that will be used for generation of the .gitignore file by calling the `noAutoDetect()` configuration method.
+
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Groovy
+----
+include::{samplesCodeDir}/create-gitignore-manual-configuration/groovy/build.gradle[]
+----

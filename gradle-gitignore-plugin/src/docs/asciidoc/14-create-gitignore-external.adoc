@@ -1,1 +1,9 @@
 === External Configuration
+In the event that you do not want to use gitignore.io to generate the .gitignore file you can insert any hosted document
+using the `url` configuration parameter.
+
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Groovy
+----
+include::{samplesCodeDir}/create-gitignore-external-configuration/groovy/build.gradle[]
+----

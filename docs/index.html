@@ -597,11 +597,37 @@ able to add your own facets to the generation process by using the <code>facets<
 </div>
 <div class="sect2">
 <h3 id="manual_configuration"><a class="anchor" href="#manual_configuration"></a>3.3. Manual Configuration</h3>
-
+<div class="paragraph">
+<p>Automatic discovery of project facets can be disabled allowing you to configure all facets that will be used for generation of the .gitignore file by calling the <code>noAutoDetect()</code> configuration method.</p>
+</div>
+<div class="listingblock primary">
+<div class="title">Groovy</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">gitignore {
+    noAutoDetect()
+    facets = [
+            'java',
+            'idea',
+            'gradle'
+    ]
+}</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="external_configuration"><a class="anchor" href="#external_configuration"></a>3.4. External Configuration</h3>
-
+<div class="paragraph">
+<p>In the event that you do not want to use gitignore.io to generate the .gitignore file you can insert any hosted document
+using the <code>url</code> configuration parameter.</p>
+</div>
+<div class="listingblock primary">
+<div class="title">Groovy</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">gitignore {
+    url = 'https://raw.githubusercontent.com/gregwhitaker/gradle-gitignore-plugin/master/src/templates/template-gitignore?token=AFw8vOxtg_dhIKrIKO1-aKjhpcvuxB6Kks5YhFcIwA%3D%3D'
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,8 @@
+gitignore {
+    noAutoDetect()
+    facets = [
+            'java',
+            'idea',
+            'gradle'
+    ]
+}
