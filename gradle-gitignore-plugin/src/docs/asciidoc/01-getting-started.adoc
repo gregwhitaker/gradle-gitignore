@@ -2,13 +2,13 @@
 
 The plugin can be applied with the plugin DSL or the buildscript syntax.
 
-==== Applying the Plugin using the Plugin DSL
+==== Plugin DSL
 [source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
 .Groovy
 ----
 include::{samplesCodeDir}/apply-plugin-plugindsl/groovy/build.gradle[]
 ----
-==== Applying the Plugin using the Buildscript Syntax
+==== Buildscript Syntax
 [source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
 .Groovy
 ----
