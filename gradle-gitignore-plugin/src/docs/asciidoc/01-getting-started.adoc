@@ -15,5 +15,8 @@ include::{samplesCodeDir}/apply-plugin-plugindsl/groovy/build.gradle[]
 include::{samplesCodeDir}/apply-plugin-buildscript/groovy/build.gradle[]
 ----
 
-No other configuration is necessary at this point. If you wish to override any of the configuration options you can
+No other configuration is necessary at this point. The plugin will auto-detect the appropriate gitignore facets
+and automatically generate a `.gitgnore` file.
+
+If you wish to override any of the configuration options, you can
 through the `gitignore` extension detailed below.
