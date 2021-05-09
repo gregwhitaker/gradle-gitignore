@@ -1,0 +1,6 @@
+gitignore {
+    facets = [
+            'linux',
+            'eclipse'
+    ]
+}

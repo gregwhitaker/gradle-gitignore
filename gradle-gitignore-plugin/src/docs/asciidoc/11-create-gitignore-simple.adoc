@@ -1,1 +1,3 @@
 === Simple Configuration
+When using the plugin with simple configuration there is no need for a configuration block. Simply apply the plugin, as
+detailed above, and a .gitignore file will be automatically generated.

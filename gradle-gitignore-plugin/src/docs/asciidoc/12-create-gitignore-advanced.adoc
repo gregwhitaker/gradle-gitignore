@@ -1,1 +1,12 @@
 === Advanced Configuration
+The plugin uses "facets" to describe what rules to add to the .gitignore file. These facets correspond to the technology
+selections on the gitignore.io website.
+
+When using advanced configuration the plugin will continue to automatically discover project facets, but you are also
+able to add your own facets to the generation process by using the `facets` configuration parameter.
+
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Groovy
+----
+include::{samplesCodeDir}/create-gitignore-advanced-configuration/groovy/build.gradle[]
+----
