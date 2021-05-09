@@ -1,0 +1,3 @@
+plugins {
+    id "com.github.gregwhitaker.gitignore" version "2.0.0"
+}

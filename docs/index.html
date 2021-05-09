@@ -437,20 +437,82 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>Gradle GitIgnore Plugin User Guide</h1>
 <div class="details">
 <span id="revnumber">version 2.0.0</span>
 </div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#getting_started">1.1. Getting Started</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="introduction"><a class="anchor" href="#introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gradle plugin for creating .gitignore files.</p>
+</div>
+<div class="paragraph">
+<p>For detailed information on getting started with this plugin and how to configure specific tasks, please refer to the
+documentation below.</p>
+</div>
+<div class="sect2">
+<h3 id="getting_started"><a class="anchor" href="#getting_started"></a>1.1. Getting Started</h3>
+<div class="paragraph">
+<p>The plugin can be applied with the buildscript syntax or the plugin DSL.</p>
+</div>
+<div class="sect3">
+<h4 id="applying_the_plugin_using_the_buildscript_syntax"><a class="anchor" href="#applying_the_plugin_using_the_buildscript_syntax"></a>1.1.1. Applying the Plugin using the Buildscript Syntax</h4>
+<div class="listingblock primary">
+<div class="title">Groovy</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.0.0"
+    }
+}
 
+apply plugin: "com.github.gregwhitaker.gitignore"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="applying_the_plugin_using_the_plugin_dsl"><a class="anchor" href="#applying_the_plugin_using_the_plugin_dsl"></a>1.1.2. Applying the Plugin using the Plugin DSL</h4>
+<div class="listingblock primary">
+<div class="title">Groovy</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">plugins {
+    id "com.github.gregwhitaker.gitignore" version "2.0.0"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No other configuration is necessary at this point. If you wish to override any of the configuration options you can
+through the <code>gitignore</code> extension detailed below.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 2.0.0<br>
-Last updated 2021-05-07 13:16:56 -0700
+Last updated 2021-05-09 14:31:01 -0700
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">

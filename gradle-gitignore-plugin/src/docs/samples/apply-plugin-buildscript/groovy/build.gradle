@@ -1,0 +1,12 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.0.0"
+    }
+}
+
+apply plugin: "com.github.gregwhitaker.gitignore"
