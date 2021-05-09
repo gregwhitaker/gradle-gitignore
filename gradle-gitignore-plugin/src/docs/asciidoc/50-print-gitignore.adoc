@@ -1,0 +1,9 @@
+== Print GitIgnore
+Prints the current `.gitignore` file to the terminal.
+
+=== Example
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Bash
+----
+include::{samplesCodeDir}/print-gitignore/bash/example.sh[]
+----

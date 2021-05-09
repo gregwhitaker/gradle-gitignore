@@ -9,3 +9,5 @@ include::20-create-gitignore.adoc[]
 include::30-delete-gitignore.adoc[]
 
 include::40-list-gitignore-facets.adoc[]
+
+include::50-print-gitignore.adoc[]
