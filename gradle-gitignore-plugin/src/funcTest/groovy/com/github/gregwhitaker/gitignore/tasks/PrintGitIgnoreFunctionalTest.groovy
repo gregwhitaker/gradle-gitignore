@@ -20,24 +20,18 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
-import java.nio.file.Paths
-
 import static org.gradle.testkit.runner.TaskOutcome.SUCCESS
-import static org.junit.Assert.assertFalse
 
-class DeleteGitIgnoreFunctionalTest extends Specification {
+class PrintGitIgnoreFunctionalTest extends Specification{
 
-    @Rule
-    TemporaryFolder testProjectDir = new TemporaryFolder()
+    @Rule TemporaryFolder testProjectDir = new TemporaryFolder()
     File buildFile
-    File gitignoreFile
 
     def setup() {
         buildFile = testProjectDir.newFile('build.gradle')
-        gitignoreFile = testProjectDir.newFile('.gitignore')
     }
 
-    def "should delete gitignore file"() {
+    def "should print gitignore file"() {
         given:
         buildFile << """
             plugins {
@@ -48,18 +42,18 @@ class DeleteGitIgnoreFunctionalTest extends Specification {
             }
         """
 
-        def gitignorePath = Paths.get(testProjectDir.root.getAbsolutePath(), ".gitignore")
-
         when:
         def result = GradleRunner.create()
                 .withPluginClasspath()
                 .withProjectDir(testProjectDir.root)
-                .withArguments('deleteGitIgnore')
+                .withArguments('printGitIgnore')
                 .build()
 
         then:
-        result.task(":deleteGitIgnore").outcome == SUCCESS
+        result.task(":printGitIgnore").outcome == SUCCESS
 
-        assertFalse(gitignorePath.toFile().exists())
+        result.output.contains("### Gradle ###")
+        result.output.contains("### Java ###")
+        result.output.contains("### Intellij+all ###")
     }
 }
