@@ -1,6 +1,18 @@
 == Introduction
 
-Gradle plugin for creating .gitignore files.
+Gradle plugin for generating .gitignore files using link:http://gitignore.io[gitignore.io].
+
+=== Features
+* Templates supplied by gitignore.io, so they are always up to date.
+
+* Automatic generation of the gitignore file based on the following project facets:
+    ** Programming Languages
+    ** Development Environment
+    ** Operating System
+
+* Generation of the gitignore file is completely configurable.
+
+* Support for pulling gitignore templates from locations other than gitignore.io.
 
 For detailed information on getting started with this plugin and how to configure specific tasks, please refer to the
 documentation below.

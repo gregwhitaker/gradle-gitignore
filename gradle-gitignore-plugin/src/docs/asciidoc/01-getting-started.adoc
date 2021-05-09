@@ -1,18 +1,18 @@
 === Getting Started
 
-The plugin can be applied with the buildscript syntax or the plugin DSL.
+The plugin can be applied with the plugin DSL or the buildscript syntax.
 
-==== Applying the Plugin using the Buildscript Syntax
-[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
-.Groovy
-----
-include::{samplesCodeDir}/apply-plugin-buildscript/groovy/build.gradle[]
-----
 ==== Applying the Plugin using the Plugin DSL
 [source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
 .Groovy
 ----
 include::{samplesCodeDir}/apply-plugin-plugindsl/groovy/build.gradle[]
+----
+==== Applying the Plugin using the Buildscript Syntax
+[source,groovy,indent=0,subs="verbatim,attributes",role="primary"]
+.Groovy
+----
+include::{samplesCodeDir}/apply-plugin-buildscript/groovy/build.gradle[]
 ----
 
 No other configuration is necessary at this point. If you wish to override any of the configuration options you can

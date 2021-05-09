@@ -448,7 +448,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#getting_started">1.1. Getting Started</a></li>
+<li><a href="#features">1.1. Features</a></li>
+<li><a href="#getting_started">1.2. Getting Started</a></li>
 </ul>
 </li>
 </ul>
@@ -459,19 +460,62 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="introduction"><a class="anchor" href="#introduction"></a>1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Gradle plugin for creating .gitignore files.</p>
+<p>Gradle plugin for generating .gitignore files using <a href="http://gitignore.io">gitignore.io</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="features"><a class="anchor" href="#features"></a>1.1. Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Templates supplied by gitignore.io, so they are always up to date.</p>
+</li>
+<li>
+<p>Automatic generation of the gitignore file based on the following project facets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Development Environment</p>
+</li>
+<li>
+<p>Operating System</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generation of the gitignore file is completely configurable.</p>
+</li>
+<li>
+<p>Support for pulling gitignore templates from locations other than gitignore.io.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For detailed information on getting started with this plugin and how to configure specific tasks, please refer to the
 documentation below.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="getting_started"><a class="anchor" href="#getting_started"></a>1.1. Getting Started</h3>
+<h3 id="getting_started"><a class="anchor" href="#getting_started"></a>1.2. Getting Started</h3>
 <div class="paragraph">
-<p>The plugin can be applied with the buildscript syntax or the plugin DSL.</p>
+<p>The plugin can be applied with the plugin DSL or the buildscript syntax.</p>
 </div>
 <div class="sect3">
-<h4 id="applying_the_plugin_using_the_buildscript_syntax"><a class="anchor" href="#applying_the_plugin_using_the_buildscript_syntax"></a>1.1.1. Applying the Plugin using the Buildscript Syntax</h4>
+<h4 id="applying_the_plugin_using_the_plugin_dsl"><a class="anchor" href="#applying_the_plugin_using_the_plugin_dsl"></a>1.2.1. Applying the Plugin using the Plugin DSL</h4>
+<div class="listingblock primary">
+<div class="title">Groovy</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">plugins {
+    id "com.github.gregwhitaker.gitignore" version "2.0.0"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="applying_the_plugin_using_the_buildscript_syntax"><a class="anchor" href="#applying_the_plugin_using_the_buildscript_syntax"></a>1.2.2. Applying the Plugin using the Buildscript Syntax</h4>
 <div class="listingblock primary">
 <div class="title">Groovy</div>
 <div class="content">
@@ -487,17 +531,6 @@ documentation below.</p>
 }
 
 apply plugin: "com.github.gregwhitaker.gitignore"</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="applying_the_plugin_using_the_plugin_dsl"><a class="anchor" href="#applying_the_plugin_using_the_plugin_dsl"></a>1.1.2. Applying the Plugin using the Plugin DSL</h4>
-<div class="listingblock primary">
-<div class="title">Groovy</div>
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="groovy">plugins {
-    id "com.github.gregwhitaker.gitignore" version "2.0.0"
-}</code></pre>
 </div>
 </div>
 <div class="paragraph">
