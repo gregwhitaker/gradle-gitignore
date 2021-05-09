@@ -90,16 +90,8 @@ gitignore {
 
 ```
 
-### Tasks
-The plugin exposes the following tasks allowing you to create new .gitignore files, delete existing files, as well as display
-the current .gitignore configuration.
-
-Name                | Description
---------------------|-----------------------------------------
-createGitIgnore     | Creates a .gitignore file for the project.
-deleteGitIgnore     | Deletes the .gitignore file for the project.
-listGitIgnoreFacets | Lists all of the supported project facets.
-printGitIgnore      | Prints the .gitignore file for the project.
+## Documentation
+For detailed documentation on this plugin and its features please refer to the [GitIgnore Gradle Plugin User Guide](https://gregwhitaker.github.io/gradle-gitignore/).
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/gradle-gitignore-plugin/issues).
