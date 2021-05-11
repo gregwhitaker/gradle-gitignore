@@ -10,7 +10,7 @@ plugins {
 }
 
 // Project Configuration
-project.group           = "com.github.gregwhitaker.gitignore"
+project.group           = "com.github.gregwhitaker"
 project.version         = "2.0.0"
 project.description     = "Gradle plugin for generating .gitignore files."
 
@@ -55,7 +55,7 @@ gradlePlugin {
     testSourceSets sourceSets.funcTest
 
     plugins {
-        localstackPlugin {
+        gitignorePlugin {
             id = pluginId
             displayName = project.ext.name
             description = project.description
@@ -68,6 +68,11 @@ pluginBundle {
     website = "https://github.com/gregwhitaker/gradle-gitignore"
     vcsUrl  = project.ext.url
     tags    = [ "gitignore", "git" ]
+
+    mavenCoordinates {
+        groupId = project.group
+        artifactId = name
+    }
 }
 
 java {

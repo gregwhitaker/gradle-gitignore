@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath "com.github.gregwhitaker.gitignore:gradle-gitignore-plugin"
+        classpath "com.github.gregwhitaker:gradle-gitignore-plugin"
     }
 }
 
@@ -16,7 +16,7 @@ plugins {
 apply plugin: "com.github.gregwhitaker.gitignore"
 
 // Project Configuration
-project.group           = "com.github.gregwhitaker.gitignore"
+project.group           = "com.github.gregwhitaker"
 project.version         = "2.0.0"
 project.description     = "Example project that demonstrates the use of the Gradle GitIgnore Plugin"
 
