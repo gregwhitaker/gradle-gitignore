@@ -69,10 +69,10 @@ pluginBundle {
     vcsUrl  = project.ext.url
     tags    = [ "gitignore", "git" ]
 
-    mavenCoordinates {
-        groupId = project.group
-        artifactId = name
-    }
+//    mavenCoordinates {
+//        groupId = project.group
+//        artifactId = name
+//    }
 }
 
 java {
