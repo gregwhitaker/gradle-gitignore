@@ -19,7 +19,7 @@ The plugin can be applied with either the plugin or legacy buildscript DSL. For 
 ### Applying the Plugin with Plugin DSL
 ```
 plugins {
-    id "com.github.gregwhitaker.gitignore"    version "2.0.0"
+    id "com.github.gregwhitaker.gitignore"    version "2.1.0"
 }
 ```
 
@@ -32,7 +32,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.0.0"
+    classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.1.0"
   }
 }
 

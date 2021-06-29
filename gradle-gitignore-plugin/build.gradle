@@ -11,13 +11,16 @@ plugins {
 
 // Project Configuration
 project.group           = "com.github.gregwhitaker"
-project.version         = "2.0.0"
+project.version         = "2.1.0"
 project.description     = "Gradle plugin for generating .gitignore files."
 
 project.ext.name        = "gradle-gitignore-plugin"
 project.ext.pluginId    = "com.github.gregwhitaker.gitignore"
 project.ext.scm         = "scm:git@github.com/gregwhitaker/gradle-gitignore.git"
 project.ext.url         = "https://github.com/gregwhitaker/gradle-gitignore.git"
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
 
 // Dependency Management
 repositories {
