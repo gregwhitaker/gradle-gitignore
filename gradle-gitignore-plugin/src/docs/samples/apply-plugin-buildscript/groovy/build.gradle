@@ -5,7 +5,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.0.0"
+        classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.1.0"
     }
 }
 
