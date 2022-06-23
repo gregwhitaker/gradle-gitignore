@@ -16,6 +16,7 @@
 package com.github.gregwhitaker.gitignore.tasks
 
 import org.gradle.testkit.runner.GradleRunner
+import org.gradle.testkit.runner.UnexpectedBuildFailure
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
@@ -72,7 +73,7 @@ class CreateGitIgnoreFunctionalTest extends Specification {
                 id "application"
                 id "com.github.gregwhitaker.gitignore"
             }
-            
+
             gitignore {
                 facets = [ "localstack" ]
             }
@@ -105,7 +106,7 @@ class CreateGitIgnoreFunctionalTest extends Specification {
                 id "application"
                 id "com.github.gregwhitaker.gitignore"
             }
-            
+
             gitignore {
                 noAutoDetect()
                 facets = [ "localstack" ]
@@ -139,7 +140,7 @@ class CreateGitIgnoreFunctionalTest extends Specification {
                 id "application"
                 id "com.github.gregwhitaker.gitignore"
             }
-            
+
             gitignore {
                 url = "https://www.toptal.com/developers/gitignore/api/java,gradle"
             }
@@ -160,5 +161,38 @@ class CreateGitIgnoreFunctionalTest extends Specification {
         assertTrue(contents.contains("### Gradle ###"))
         assertTrue(contents.contains("### Java ###"))
         assertFalse(contents.contains("### macOS ###"))
+    }
+
+    def "should abort the build if the gitignore file cannot be downloaded from the given URL"(String url, String expectedMessage) {
+        given:
+        buildFile << """
+            plugins {
+                id "idea"
+                id "java"
+                id "application"
+                id "com.github.gregwhitaker.gitignore"
+            }
+
+            gitignore {
+                url = "${url}"
+            }
+        """
+
+        when:
+        def result = GradleRunner.create()
+                .withPluginClasspath()
+                .withProjectDir(testProjectDir.root)
+                .build()
+
+        then:
+        UnexpectedBuildFailure exception = thrown(UnexpectedBuildFailure)
+        exception.buildResult.output.contains(expectedMessage)
+
+        where:
+        url                              || expectedMessage
+        'http://www.invalid-url.tld/'    || 'Invalid url. [url: \'http://www.invalid-url.tld/\']'
+        'http://www.invalid-domain.com/' || 'Error occurred while retrieving data from url. [url: \'http://www.invalid-domain.com/\']'
+        'https://httpstat.us/404'        || 'Resource not found. [url: \'https://httpstat.us/404\']'
+        'https://httpstat.us/500'        || 'Error occurred while retrieving data from url. [code: \'500\', url: \'https://httpstat.us/500\']'
     }
 }
