@@ -118,7 +118,7 @@ public class CreateGitIgnoreTask extends DefaultTask {
                 return response.body().string();
             } else {
                 if (response.code() == 404) {
-                    throw new GradleException(String.format("Resource not found. [url: '%s']"));
+                    throw new GradleException(String.format("Resource not found. [url: '%s']", url));
                 }
 
                 throw new GradleException(String.format("Error occurred while retrieving data from url. [code: '%s', url: '%s']", response.code(), url));
