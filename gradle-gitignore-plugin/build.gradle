@@ -11,7 +11,7 @@ plugins {
 
 // Project Configuration
 project.group           = "com.github.gregwhitaker"
-project.version         = "2.1.0"
+project.version         = "2.2.0"
 project.description     = "Gradle plugin for generating .gitignore files."
 
 project.ext.name        = "gradle-gitignore-plugin"
@@ -71,11 +71,6 @@ pluginBundle {
     website = "https://github.com/gregwhitaker/gradle-gitignore"
     vcsUrl  = project.ext.url
     tags    = [ "gitignore", "git" ]
-
-//    mavenCoordinates {
-//        groupId = project.group
-//        artifactId = name
-//    }
 }
 
 java {

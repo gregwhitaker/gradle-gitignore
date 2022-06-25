@@ -7,7 +7,7 @@
 Gradle plugin for generating .gitignore files using [gitignore.io](http://gitignore.io).
 
 ## Features
-* Templates supplied by gitignore.io so they are always up to date.
+* Templates supplied by gitignore.io, so they are always up-to-date.
 
 * Automatic generation of the gitignore file based on the following project facets:
     * Programming Languages
@@ -24,7 +24,7 @@ The plugin can be applied with either the plugin or legacy buildscript DSL. For 
 ### Applying the Plugin with Plugin DSL
 ```
 plugins {
-    id "com.github.gregwhitaker.gitignore"    version "2.1.0"
+    id "com.github.gregwhitaker.gitignore"    version "2.2.0"
 }
 ```
 
@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.1.0"
+    classpath "gradle.plugin.com.github.gregwhitaker:gradle-gitignore-plugin:2.2.0"
   }
 }
 
@@ -118,7 +118,7 @@ limitations under the License.
 [docs img]:https://img.shields.io/badge/Documentation-yes-green.svg
 
 [pluginportal]:https://plugins.gradle.org/plugin/com.github.gregwhitaker.gitignore
-[pluginportal img]:https://img.shields.io/badge/Gradle%20Plugin%20Portal-v2.1.0-blue.svg
+[pluginportal img]:https://img.shields.io/badge/Gradle%20Plugin%20Portal-v2.2.0-blue.svg
 
 [license]:LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202-blue.svg

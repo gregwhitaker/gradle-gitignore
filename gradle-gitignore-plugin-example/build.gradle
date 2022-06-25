@@ -10,14 +10,14 @@ plugins {
     id "application"
     id "com.github.hierynomus.license"      version "0.15.0"
     id "com.avast.gradle.docker-compose"    version "0.12.1"
-    id "com.nike.pdm.localstack"    version "0.2.0"
+    id "com.nike.pdm.localstack"            version "1.0.0"
 }
 
 apply plugin: "com.github.gregwhitaker.gitignore"
 
 // Project Configuration
 project.group           = "com.github.gregwhitaker"
-project.version         = "2.1.0"
+project.version         = "2.2.0"
 project.description     = "Example project that demonstrates the use of the Gradle GitIgnore Plugin"
 
 repositories {
